@@ -1,2 +1,2 @@
-# sage
+# Sage
 Sage Theme for VA
