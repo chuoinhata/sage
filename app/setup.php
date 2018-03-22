@@ -7,6 +7,8 @@ use Roots\Sage\Assets\JsonManifest;
 use Roots\Sage\Template\Blade;
 use Roots\Sage\Template\BladeProvider;
 
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' ); 
+
 /**
  * Theme assets
  */
@@ -126,3 +128,40 @@ add_action('after_setup_theme', function () {
         return "<?= " . __NAMESPACE__ . "\\asset_path({$asset}); ?>";
     });
 });
+
+/* Setup ACF Local Json. */
+if(\is_plugin_active('acf-pro/acf.php')) {
+
+    /* Save Json. */
+    add_filter('acf/settings/save_json', function( $path ) {
+        $acf_local_json_dir = get_stylesheet_directory() . '/acf-local-json';
+        
+        // Check if folder /acf-local-json is already exist or not.
+        if(!file_exists($acf_local_json_dir)) {
+            mkdir($acf_local_json_dir, 0700);
+        }
+
+        return $acf_local_json_dir;
+        
+    });
+
+    /* Load Json. */
+    add_filter('acf/settings/load_json', function( $paths ) {
+        // remove original path (optional)
+        unset($paths[0]);
+        
+        $acf_local_json_dir = get_stylesheet_directory() . '/acf-local-json';
+        
+        // Check if folder /acf-local-json is already exist or not.
+        if(!file_exists($acf_local_json_dir)) {
+            mkdir($acf_local_json_dir, 0700);
+        }
+
+        // append path
+        $paths[] = $acf_local_json_dir;
+        
+        // return
+        return $paths;
+        
+    });   
+}
