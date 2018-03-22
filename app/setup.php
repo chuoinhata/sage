@@ -32,13 +32,6 @@ add_action('after_setup_theme', function () {
     add_theme_support('soil-relative-urls');
 
     /**
-     * Enable feature from VA
-     */
-    // add_theme_support('va_search_exclude', ['Sample Page']);
-    // add_theme_support('va_search_posttypes', ['post']);
-    // add_theme_support('va_facetwp_support');
-
-    /**
      * Enable plugins to manage the document title
      * @link https://developer.wordpress.org/reference/functions/add_theme_support/#title-tag
      */
