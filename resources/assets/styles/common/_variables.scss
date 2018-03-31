@@ -1,9 +1,24 @@
 /** Import Bootstrap functions */
 @import "~bootstrap/scss/functions";
 
-$theme-colors: (
-  primary: #27ae60
-);
+// Colors
+$red1: #ff0;
+$black1: #000;
+$white1: #fff;
 
-$navbar-dark-toggler-icon-bg: none;
-$navbar-light-toggler-icon-bg: none;
+// Theme colors
+$text-color: $black1;
+
+// Border
+$border-color: $red1;
+
+// Links
+$link-color: $text-color;
+$link-hover-color: $red1;
+
+// Fonts
+$font-body: sans-serif; //Change with your font
+$font-heading: sans-serif; //Change with your font
+
+// Background
+$backgound-body: $white1;

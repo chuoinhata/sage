@@ -12,11 +12,16 @@
 // @import "~some-node-module";
 
 /** Import theme styles */
+@import "common/mixin";
 @import "common/global";
-@import "components/buttons";
-@import "components/comments";
-@import "components/forms";
-@import "components/wp-classes";
+// @import "components/select2";			// Style select2
+// @import "components/woocommerce";	// Style overide woocommerce (table + column + account page)
+// @import "components/slick";				// Style overide slick slider
+// @import "components/minicart";			// Style overide mini cart
+// @import "components/buttons";
+// @import "components/comments";
+// @import "components/forms";
+// @import "components/wp-classes";
 @import "layouts/header";
 @import "layouts/sidebar";
 @import "layouts/footer";
