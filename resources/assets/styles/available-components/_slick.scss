@@ -1,0 +1,40 @@
+/* custom slick slider */
+.slick-initialized {
+  .slick-arrow {
+    //background-image: url(../images/icon-arrow-slider.png); // Change image icon
+    width: 22px;
+    height: 34px;
+    background-repeat: no-repeat;
+    z-index: 9;
+
+    @include media-breakpoint-down(sm) {
+      width: 15px;
+      height: 24px;
+      background-size: 31px 21px;
+    }
+
+    &::before {
+      display: none;
+    }
+
+    &.slick-prev {
+      background-position: 0 0;
+      left: 30px;
+
+      @include media-breakpoint-down(sm) {
+        left: 15px;
+        background-position: 0 1px;
+      }
+    }
+
+    &.slick-next {
+      background-position: 100% 0;
+      right: 30px;
+
+      @include media-breakpoint-down(sm) {
+        right: 15px;
+        background-position: 100% 1px;
+      }
+    }
+  }
+}

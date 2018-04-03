@@ -1,0 +1,221 @@
+.si_mini-cart {
+  position: fixed;
+  top: 25px;
+  right: 30px;
+  z-index: 25;
+
+  @include media-breakpoint-down(md) {
+    top: 15px;
+    z-index: 99;
+    right: 15px;
+  }
+
+  .si_cart-icon {
+    position: relative;
+    z-index: 7;
+    top: 20px;
+    right: 20px;
+    display: block;
+    background: $backgound-body;
+    padding: 10px 45px 10px 10px;
+    border-radius: 5px;
+
+    @include media-breakpoint-down(md) {
+      top: 0;
+      right: 0;
+    }
+
+    &::before {
+      //@include img-retina('../images/icon-cart.png', '../images/icon-cart@2x.png', 24px, 20px); // Icon cart
+
+      content: '';
+      width: 24px;
+      height: 20px;
+      display: block;
+      position: absolute;
+      top: 11px;
+      right: 10px;
+      z-index: 9;
+    }
+
+    strong {
+      font-weight: 400;
+      z-index: 9;
+      position: relative;
+    }
+  }
+
+  .si_mini-cart-info {
+    position: absolute;
+    transition: all 0.27s ease-in-out;
+    transform-origin: 0 0;
+    visibility: hidden;
+    opacity: 0;
+    transform: rotateX(-90deg);
+    z-index: 3;
+    padding: 60px 20px 20px;
+    max-width: 400px;
+    width: calc(100vw - 47px);
+    top: 0;
+    right: 0;
+    background: $backgound-body;
+    border: 2px solid $border-color;
+
+    .close-cart-mini {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      z-index: 9;
+      display: none;
+      width: 25px;
+      height: 25px;
+
+      &::before,
+      &::after {
+        background: $border-color;
+        content: '';
+        width: 32px;
+        height: 2px;
+        position: absolute;
+        top: 12px;
+        left: -3px;
+      }
+
+      &::before {
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+
+    .woocommerce-mini-cart-wrapper {
+      padding-bottom: 20px;
+      border-bottom: 1px solid $border-color;
+      margin-bottom: 20px;
+    }
+
+    .total {
+      margin-bottom: 20px;
+      display: block;
+
+      .amount {
+        float: right;
+      }
+    }
+
+    .cart_list {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: block;
+      height: auto;
+      max-height: calc(100vh - 340px);
+      overflow-y: auto;
+
+      @include scrollbar-style;
+
+      .mini_cart_item {
+        font-size: 14px;
+        border: 0;
+        display: block;
+        text-align: left;
+        position: relative;
+        margin-bottom: 20px;
+        overflow: hidden;
+        padding: 0 40px 0 120px;
+        min-height: 100px;
+
+        @include media-breakpoint-down(sm) {
+          padding: 0 35px 0 100px;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        a {
+          padding: 0;
+        }
+
+        .remove {
+          width: 14px;
+          height: 14px;
+          position: absolute;
+          top: 24px;
+          right: 10px;
+          display: block;
+          color: $text-color !important;
+          font-size: 14px;
+
+          &:hover {
+            background: none;
+          }
+        }
+
+        .item-image {
+          display: block;
+          float: left;
+          width: 100px;
+          position: absolute;
+          left: 0;
+          top: 0;
+
+          @include media-breakpoint-down(sm) {
+            width: 85px;
+          }
+
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+
+        .item-detail {
+          .item-product-info {
+            position: relative;
+            margin-bottom: 15px;
+
+            .quantity {
+              display: block;
+            }
+
+            .item-title {
+              line-height: 1.3;
+              font-weight: 700;
+
+              a {
+                font-size: 16px;
+              }
+            }
+          }
+        }
+
+        .item-price {
+          .amount {
+            font-size: 18px;
+            font-weight: 700;
+
+            .woocommerce-Price-currencySymbol {
+              font-size: 11px;
+              position: relative;
+              top: -5px;
+              font-weight: 400;
+            }
+          }
+        }
+      }
+    }
+
+    .buttons {
+      .button {
+        @include style-button(100%, 0);
+
+        &.checkout {
+          display: none;
+        }
+      }
+    }
+  }
+}
