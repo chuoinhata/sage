@@ -87,11 +87,11 @@ input[type="password"],
 input[type="email"],
 input[type="number"],
 input[type="tel"] {
-  @include style-input(42px);
+  @include style-input-form(42px);
 }
 
 textarea {
-  @include style-input;
+  @include style-input-form;
 }
 
 button {
